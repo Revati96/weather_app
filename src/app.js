@@ -53,8 +53,9 @@ if(!req.query.location)
       error : "Please send mandatory field location"
     })
   }
-  const location = req.query.location;
-    geoCoding(location, (error , data) =>
+ 
+  const location = req.query.location
+    geoCoding( location , (error , data) =>
     {
         if(error)
         {
@@ -62,7 +63,7 @@ if(!req.query.location)
             error
           });
         }
-  
+      
         forecast( data.latitude,data.longitude, (error, forecastData) => {
             if(error)
             {
@@ -71,7 +72,7 @@ if(!req.query.location)
               });
             }
             res.send({
-              location,
+              location : data.location,
               forecast : forecastData
             })
         

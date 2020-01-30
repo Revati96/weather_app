@@ -1,6 +1,4 @@
-
-
- const weatherForm = document.querySelector('form');
+const weatherForm = document.querySelector('form');
  const search = document.querySelector('input');
  const messageOne = document.querySelector('#message-one');
  const messageTwo = document.querySelector('#message-two');
@@ -9,8 +7,9 @@
  {
      e.preventDefault();
      var location = search.value;
-messageOne.textContent = 'Loading...';
- messageTwo.textContent = ' ';
+     messageOne.textContent = 'Loading...';
+    messageTwo.textContent = ' ';
+    console.log('Location', location);
      fetch('/weather?location='+location).then((response) => 
      {
      response.json().then((data) => {
