@@ -8,9 +8,8 @@ const forecast = (latitude,longitude,callback) =>
         } else if (body == 'undefined' || body.error) {
             callback('Unable to find location',null);
         } else {
-            callback(null, body.daily.data[0].summary + ' It is currently ' + body.currently.temperature + ' degress out. There is a ' + body.currently.precipProbability + '% chance of rain.');
+            callback(null, body.daily.data[0].summary + ' It is currently ' + body.currently.temperature + ' degress out. There is a ' + body.currently.precipProbability + '% chance of rain. '+body.daily.summary);
         }
     }) 
 }
-
 module.exports = forecast;
